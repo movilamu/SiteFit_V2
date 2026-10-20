@@ -1,0 +1,22 @@
+# Root requirements for local development.
+#
+# The repository is a monorepo of independently deployable Python
+# subprojects.  Each subproject keeps its own requirements file so that a
+# deployment (the API on Render, a scheduled ingestion job) installs only
+# what it needs.  This file aggregates them for a single-venv development
+# setup.
+#
+# Pinned with lower and upper bounds rather than exact versions so that
+# security patches are picked up automatically while major-version
+# upgrades remain a deliberate decision.
+
+-r ingestion/requirements.txt
+-r scoring/requirements.txt
+-r elicitation/requirements.txt
+-r sensitivity/requirements.txt
+-r api/requirements.txt
+-r analytics/requirements.txt
+
+# Test tooling (development only).
+pytest>=8.0,<9.0
+pytest-asyncio>=0.24,<1.0
