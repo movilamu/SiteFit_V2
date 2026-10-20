@@ -1,4 +1,4 @@
-"""Data quality, coverage and confidence reporting.
+﻿"""Data quality, coverage and confidence reporting.
 
 The platform must disclose the limits of its evidence base.  This router
 reports **deterministic, explainable** measures only:
@@ -21,11 +21,11 @@ from typing import Any, Optional
 
 from fastapi import APIRouter, Request
 
-from api.app.core.cache import TTLCache
-from api.app.core.config import get_settings
+from app.core.cache import TTLCache
+from app.core.config import get_settings
 from concurrent.futures import ThreadPoolExecutor
 
-from api.app.core.supabase_client import rest_get
+from app.core.supabase_client import rest_get
 from scoring.criteria_hierarchy import CRITERIA_TREE, iter_leaves
 
 logger = logging.getLogger(__name__)
@@ -164,7 +164,7 @@ def _build_data_quality(request: Request) -> dict[str, Any]:
     # --- Scoring matrix ----------------------------------------------
     matrix_info: dict[str, Any] = {"available": False}
     try:
-        from api.app.core.matrix_store import load_normalized_matrix
+        from app.core.matrix_store import load_normalized_matrix
 
         matrix = load_normalized_matrix()
         columns = list(matrix.columns)
@@ -341,3 +341,4 @@ def get_limitations() -> dict[str, Any]:
 
 
 __all__ = ["router", "KNOWN_LIMITATIONS"]
+

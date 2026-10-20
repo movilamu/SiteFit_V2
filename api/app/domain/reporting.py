@@ -1,4 +1,4 @@
-"""Executive decision report generation.
+﻿"""Executive decision report generation.
 
 The report is assembled from the deterministic results the platform has
 already computed: the ranking, the score decomposition, the requirement
@@ -474,7 +474,7 @@ def render_markdown(report: Mapping[str, Any]) -> str:
     add("## Data quality and limitations")
     add("")
     for limitation in (report.get("data_quality") or {}).get("limitations") or []:
-        add(f"- **{limitation.get('title')}** — {limitation.get('detail')}")
+        add(f"- **{limitation.get('title')}** â€” {limitation.get('detail')}")
     add("")
 
     add("## Assumptions")
@@ -630,3 +630,4 @@ __all__ = [
     "render_html",
     "render_markdown",
 ]
+

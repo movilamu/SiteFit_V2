@@ -1,4 +1,4 @@
-"""Health and readiness endpoints.
+﻿"""Health and readiness endpoints.
 
 These are the endpoints a load balancer or uptime monitor should poll.  They
 never expose credentials; only a coarse fingerprint of which integrations
@@ -12,8 +12,8 @@ from typing import Any
 
 from fastapi import APIRouter, Response, status
 
-from api.app.core.config import get_settings
-from api.app.core.supabase_client import is_supabase_configured
+from app.core.config import get_settings
+from app.core.supabase_client import is_supabase_configured
 
 router = APIRouter(tags=["Health"])
 
@@ -76,7 +76,7 @@ def _matrix_ready() -> tuple[bool, str]:
     """
 
     try:
-        from api.app.core.matrix_store import (
+        from app.core.matrix_store import (
             MatrixUnavailableError,
             load_normalized_matrix,
         )

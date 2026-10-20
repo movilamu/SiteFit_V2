@@ -1,4 +1,4 @@
-"""Brokerage and agency intelligence.
+﻿"""Brokerage and agency intelligence.
 
 Brokerage discovery uses the same source-adapter architecture as property
 discovery: each source operates independently, a failing source degrades to
@@ -34,7 +34,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from typing import Any, Optional, Protocol
 
-from api.app.core.config import get_settings
+from app.core.config import get_settings
 
 logger = logging.getLogger(__name__)
 
@@ -568,3 +568,4 @@ __all__ = [
     "list_brokerage_sources",
     "search_brokerages",
 ]
+

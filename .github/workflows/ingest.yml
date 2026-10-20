@@ -1,0 +1,74 @@
+name: ingest
+
+on:
+  schedule:
+    # Daily at 06:00 UTC
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: |
+            ingestion/requirements.txt
+            requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r ingestion/requirements.txt
+
+      - name: Load the environment
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          ORS_API_KEY: ${{ secrets.ORS_API_KEY }}
+          PROPERTY_SOURCE_URL: ${{ secrets.PROPERTY_SOURCE_URL }}
+        run: |
+          {
+            echo "SUPABASE_URL=$SUPABASE_URL"
+            echo "SUPABASE_KEY=$SUPABASE_KEY"
+            echo "SUPABASE_SERVICE_ROLE_KEY=$SUPABASE_SERVICE_ROLE_KEY"
+            echo "ORS_API_KEY=$ORS_API_KEY"
+            echo "PROPERTY_SOURCE_URL=$PROPERTY_SOURCE_URL"
+          } >> "$GITHUB_ENV"
+
+      - name: Ingest the geospatial base
+        run: python -m ingestion.geospatial_base_etl
+
+      - name: Ingest the competitive set
+        run: python -m ingestion.competitor_etl
+
+      - name: Ingest demographics
+        run: python -m ingestion.demographic_etl
+
+      - name: Ingest economic data
+        run: python -m ingestion.economic_etl
+
+      - name: Ingest accessibility
+        run: python -m ingestion.accessibility_etl
+
+      - name: Ingest property listings
+        continue-on-error: true
+        run: python -m ingestion.property_etl
+
+      - name: Ingest the client estate
+        continue-on-error: true
+        run: python -m ingestion.own_estate_etl
+
+      - name: Verify the ingested data
+        run: python -m ingestion.verify_data

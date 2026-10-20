@@ -1,4 +1,4 @@
-"""Centralised runtime configuration for the Retail Site Intelligence API.
+﻿"""Centralised runtime configuration for the Retail Site Intelligence API.
 
 Every value is read from the environment exactly once at import time and
 exposed through a single immutable settings object.  Nothing here is ever
@@ -27,7 +27,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 #: The repository root, used to locate the environment file.
-REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
+REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 
 
 def load_environment_file() -> Path | None:
@@ -594,3 +594,4 @@ def get_settings() -> Settings:
     """Return the process-wide settings singleton."""
 
     return Settings()
+

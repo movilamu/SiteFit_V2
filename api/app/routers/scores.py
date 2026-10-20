@@ -1,4 +1,4 @@
-"""
+﻿"""
 api/score_routes.py
 
 FastAPI router for multi-criteria site scoring.
@@ -43,7 +43,7 @@ import pandas as pd
 from pydantic import BaseModel, Field, field_validator, model_validator
 
 # Fallback imports to support module-style package import or direct script execution
-from api.app.core.matrix_store import MatrixUnavailableError
+from app.core.matrix_store import MatrixUnavailableError
 from scoring.criteria_hierarchy import CRITERIA_TREE
 from scoring.score import apply_weights, rank_sites
 from scoring.weight_model import (
@@ -113,7 +113,7 @@ class ScoreRequest(BaseModel):
         total = sum(weights.values())
         if not math.isclose(total, 1.0, abs_tol=0.01):
             raise ValueError(
-                f"Weights must sum to 1.0 (±0.01). Current total sum is {total:.4f}."
+                f"Weights must sum to 1.0 (Â±0.01). Current total sum is {total:.4f}."
             )
 
         return weights
@@ -156,7 +156,7 @@ class ScoreResponse(BaseModel):
 
 
 # ---------------------------------------------------------------------------
-# File 31 normalized matrix — same loader as File 46 (no random mock data)
+# File 31 normalized matrix â€” same loader as File 46 (no random mock data)
 # ---------------------------------------------------------------------------
 
 def _resolve_requested_weights(request: ScoreRequest) -> Dict[str, float]:
@@ -193,12 +193,12 @@ def _get_precomputed_matrix(criteria_keys: Sequence[str]) -> pd.DataFrame:
     and reports the dropped criteria.
     """
 
-    from api.app.routers.scenarios import get_normalized_matrix
+    from app.routers.scenarios import get_normalized_matrix
 
     try:
         matrix = get_normalized_matrix()
     except MatrixUnavailableError:
-        from api.app.core.matrix_store import load_normalized_matrix
+        from app.core.matrix_store import load_normalized_matrix
 
         matrix = load_normalized_matrix()
 

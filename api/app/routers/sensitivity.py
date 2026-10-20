@@ -1,4 +1,4 @@
-"""
+﻿"""
 api/sensitivity_routes.py
 
 FastAPI router exposing sensitivity analysis endpoints for retail site selection:
@@ -237,7 +237,7 @@ def get_normalized_matrix(request: Request) -> Any:
                 return value
 
     try:
-        from api.app.routers.scenarios import get_normalized_matrix
+        from app.routers.scenarios import get_normalized_matrix
 
         return get_normalized_matrix()
     except Exception as exc:

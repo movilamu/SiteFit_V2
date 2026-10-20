@@ -1,4 +1,4 @@
-"""External property and brokerage intelligence.
+﻿"""External property and brokerage intelligence.
 
 Given the top-ranked recommended sites, this router searches the
 configured public sources for relevant property and brokerage
@@ -19,7 +19,7 @@ from concurrent.futures import ThreadPoolExecutor
 from fastapi import APIRouter, HTTPException, Query, Request, status
 from pydantic import BaseModel, Field
 
-from api.app.domain.property_sources import (
+from app.domain.property_sources import (
     STATUS_UNAVAILABLE,
     STATUS_NOT_CONFIGURED,
     STATUS_OK,
@@ -53,7 +53,7 @@ def get_sources() -> dict[str, Any]:
 def _resolve_sites(request: Request, site_ids: list[str]) -> dict[str, dict[str, Any]]:
     """Look up the requested sites in the candidate-site inventory."""
 
-    from api.app.routers.sites import get_sites_dataframe
+    from app.routers.sites import get_sites_dataframe
 
     try:
         sites_df = get_sites_dataframe(request)
@@ -306,3 +306,4 @@ def search_sites(
         limit_per_site=limit_per_site,
         request=request,
     )
+

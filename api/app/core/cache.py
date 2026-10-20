@@ -1,4 +1,4 @@
-"""A very small time-to-live cache.
+﻿"""A very small time-to-live cache.
 
 Several API responses are read-only views of a published data release:
 the candidate-site inventory, the data-quality report, the set of
@@ -70,3 +70,4 @@ class TTLCache:
 
 
 __all__ = ["TTLCache"]
+

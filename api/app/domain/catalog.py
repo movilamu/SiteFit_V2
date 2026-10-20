@@ -1,4 +1,4 @@
-"""Configurable catalogue of business types, business requirements and facilities.
+﻿"""Configurable catalogue of business types, business requirements and facilities.
 
 The catalogue is *configuration*, not scoring logic.  It defines:
 
@@ -233,7 +233,7 @@ REQUIREMENT_DEFINITIONS: tuple[RequirementDefinition, ...] = (
     RequirementDefinition(
         key="floor_load_kg_m2",
         label="Floor load capacity",
-        unit="kg/m²",
+        unit="kg/mÂ²",
         minimum=0,
         default=1000,
         site_attributes=("floor_load_kg_m2", "floor_load"),
@@ -319,8 +319,8 @@ BUSINESS_TYPES: tuple[BusinessType, ...] = (
     ),
     BusinessType(
         key="cafe",
-        label="Café / Coffee Shop",
-        description="Café, coffee bar or quick-service beverage outlet.",
+        label="CafÃ© / Coffee Shop",
+        description="CafÃ©, coffee bar or quick-service beverage outlet.",
         requirements=_profile(
             seating_capacity=PREFERRED,
             kitchen_required=REQUIRED,
@@ -427,7 +427,7 @@ BUSINESS_TYPES: tuple[BusinessType, ...] = (
     BusinessType(
         key="furniture",
         label="Furniture / Home Furnishing",
-        description="Furniture, home décor and furnishings retail.",
+        description="Furniture, home dÃ©cor and furnishings retail.",
         requirements=_profile(
             display_area_sqft=REQUIRED,
             storage_area_sqft=REQUIRED,
@@ -666,3 +666,4 @@ __all__ = [
     "requirement_catalog",
     "requirements_for_business_type",
 ]
+

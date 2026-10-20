@@ -1,1 +1,2 @@
-"""Configuration, data access and shared infrastructure."""
+﻿"""Configuration, data access and shared infrastructure."""
+

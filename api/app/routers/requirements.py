@@ -1,4 +1,4 @@
-"""Site-selection requirements: catalogue, deterministic evaluation and the
+﻿"""Site-selection requirements: catalogue, deterministic evaluation and the
 AI-assisted requirement builder.
 
 The AI builder is deliberately *advisory*.  It converts natural language
@@ -17,8 +17,8 @@ from typing import Any, Mapping, Optional
 from fastapi import APIRouter, HTTPException, Request, status
 from pydantic import BaseModel, Field, field_validator
 
-from api.app.core.config import get_settings
-from api.app.domain.catalog import (
+from app.core.config import get_settings
+from app.domain.catalog import (
     ACQUISITION_MODES,
     CONSTRAINT_BEHAVIOURS,
     business_type_catalog,
@@ -26,7 +26,7 @@ from api.app.domain.catalog import (
     requirement_catalog,
     requirements_for_business_type,
 )
-from api.app.routers.sites import get_sites_dataframe
+from app.routers.sites import get_sites_dataframe
 from scoring.cost_estimation import apply_estimations, total_cost_of_ownership
 from scoring.requirement_fit import (
     DEFAULT_PENALTY_RATE,
@@ -223,7 +223,7 @@ def _enrich_requirements(requirements: Mapping[str, Any]) -> dict[str, Any]:
     from the client.
     """
 
-    from api.app.domain.catalog import FACILITY_BY_KEY, REQUIREMENT_BY_KEY
+    from app.domain.catalog import FACILITY_BY_KEY, REQUIREMENT_BY_KEY
 
     enriched = dict(requirements)
 
@@ -399,7 +399,7 @@ class ParseResponse(BaseModel):
 
 
 def _normalise_parsed(payload: Mapping[str, Any]) -> ParseResponse:
-    from api.app.domain.catalog import REQUIREMENT_BY_KEY, FACILITY_BY_KEY
+    from app.domain.catalog import REQUIREMENT_BY_KEY, FACILITY_BY_KEY
 
     known_requirement_keys = set(REQUIREMENT_BY_KEY)
     known_facility_keys = set(FACILITY_BY_KEY)
@@ -496,7 +496,7 @@ async def parse_requirements(payload: ParseRequest) -> ParseResponse:
     requirement form.
     """
 
-    from api.app.domain.ai import (
+    from app.domain.ai import (
         AIInvalidResponseError,
         AINotConfiguredError,
         AIProviderError,
@@ -536,3 +536,4 @@ async def parse_requirements(payload: ParseRequest) -> ParseResponse:
 
 
 __all__ = ["router"]
+

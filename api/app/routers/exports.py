@@ -1,4 +1,4 @@
-"""Reproducible ranking exports.
+﻿"""Reproducible ranking exports.
 
 An export is a self-describing artefact: it carries the ranked shortlist,
 the **exact** global weight mapping, the aggregation method, the scenario
@@ -22,10 +22,10 @@ from typing import Any, Optional
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-from api.app.core.auth import AuthenticatedUser, get_current_user, require_user_id
-from api.app.core.config import get_settings
-from api.app.core.matrix_store import MatrixUnavailableError
-from api.app.routers.scenarios import SUPPORTED_METHODS, get_normalized_matrix
+from app.core.auth import AuthenticatedUser, get_current_user, require_user_id
+from app.core.config import get_settings
+from app.core.matrix_store import MatrixUnavailableError
+from app.routers.scenarios import SUPPORTED_METHODS, get_normalized_matrix
 from scoring.score import apply_weights, rank_sites
 
 logger = logging.getLogger(__name__)
@@ -124,7 +124,7 @@ class ExportResponse(BaseModel):
 def _load_scenario(scenario_id: int) -> dict[str, Any]:
     """Load a persisted scenario, or raise a 404."""
 
-    from api.app.core.supabase_client import get_supabase_client
+    from app.core.supabase_client import get_supabase_client
 
     try:
         client = get_supabase_client()
@@ -167,7 +167,7 @@ def _persist_export(
         return None, False
 
     try:
-        from api.app.core.supabase_client import get_supabase_client
+        from app.core.supabase_client import get_supabase_client
 
         client = get_supabase_client()
         bucket = DEFAULT_EXPORT_BUCKET
@@ -330,3 +330,4 @@ def list_export_formats() -> dict[str, Any]:
 
 
 __all__ = ["router", "ExportRequest", "ExportResponse"]
+

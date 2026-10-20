@@ -1,4 +1,4 @@
-"""Deterministic explanation of why a site received its ranking.
+﻿"""Deterministic explanation of why a site received its ranking.
 
 Every statement produced here is assembled from values that the scoring
 engine computed.  No language model is involved, and nothing is asserted
@@ -394,3 +394,4 @@ __all__ = [
     "criterion_category",
     "criterion_label",
 ]
+

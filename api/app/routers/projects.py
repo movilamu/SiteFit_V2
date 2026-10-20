@@ -1,4 +1,4 @@
-"""Site-selection project persistence.
+﻿"""Site-selection project persistence.
 
 Every project is owned by the authenticated user.  The API never accepts
 an owner identifier from the client: it is taken from the verified
@@ -23,8 +23,8 @@ from typing import Any, Optional
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
-from api.app.core.auth import AuthenticatedUser, get_current_user, require_user_id
-from api.app.core.supabase_client import get_supabase_client, is_supabase_configured
+from app.core.auth import AuthenticatedUser, get_current_user, require_user_id
+from app.core.supabase_client import get_supabase_client, is_supabase_configured
 
 logger = logging.getLogger(__name__)
 
@@ -629,3 +629,4 @@ def delete_project(
 
 
 __all__ = ["router"]
+

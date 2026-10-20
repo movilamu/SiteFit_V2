@@ -1,4 +1,4 @@
-"""Criteria hierarchy API.
+﻿"""Criteria hierarchy API.
 
 The interface must not hard-code criterion names or weights: the analytical
 authority for the criteria tree is :mod:`scoring.criteria_hierarchy`, and
@@ -348,3 +348,4 @@ def alignment_preview(
         "coverage": round(coverage, 6),
         "scored_criterion_count": len(aligned),
     }
+

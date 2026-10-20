@@ -1,4 +1,4 @@
-"""Executive report exports in PDF, CSV and Excel.
+﻿"""Executive report exports in PDF, CSV and Excel.
 
 The export is built from the same report payload the interface shows, so
 what is exported is exactly what was presented.  The exported file always
@@ -19,7 +19,7 @@ from fastapi import APIRouter, HTTPException, status
 from fastapi.responses import Response
 from pydantic import BaseModel, Field
 
-from api.app.domain.exports import build_export, export_filename
+from app.domain.exports import build_export, export_filename
 
 logger = logging.getLogger(__name__)
 
@@ -151,3 +151,4 @@ def list_formats() -> dict[str, Any]:
 
 
 __all__ = ["router"]
+

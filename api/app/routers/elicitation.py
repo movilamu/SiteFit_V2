@@ -1,4 +1,4 @@
-from typing import Dict, List, Tuple
+﻿from typing import Dict, List, Tuple
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel, Field, field_validator
 

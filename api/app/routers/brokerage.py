@@ -1,4 +1,4 @@
-"""Brokerage and agency intelligence.
+﻿"""Brokerage and agency intelligence.
 
 The brokerage search follows the same source-adapter contract as the
 property search: each source operates independently, a failing source is
@@ -20,7 +20,7 @@ from concurrent.futures import ThreadPoolExecutor
 from fastapi import APIRouter, HTTPException, Query, Request, status
 from pydantic import BaseModel, Field
 
-from api.app.domain.brokerage_sources import (
+from app.domain.brokerage_sources import (
     list_brokerage_sources,
     search_brokerages,
 )
@@ -66,7 +66,7 @@ def search_sites(
 ) -> dict[str, Any]:
     """Search every brokerage source around each recommended site."""
 
-    from api.app.routers.sites import get_sites_dataframe
+    from app.routers.sites import get_sites_dataframe
 
     parsed_ids = [item.strip() for item in site_ids.split(",") if item.strip()]
     if not parsed_ids:
@@ -168,3 +168,4 @@ def search_sites(
 
 
 __all__ = ["router"]
+

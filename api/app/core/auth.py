@@ -1,4 +1,4 @@
-"""Authentication for the API.
+﻿"""Authentication for the API.
 
 The platform authenticates through Supabase Auth (Google provider).  The
 browser holds a Supabase session; the frontend forwards the access token
@@ -35,7 +35,7 @@ from typing import Any, Optional
 
 from fastapi import HTTPException, Request, status
 
-from api.app.core.config import get_settings
+from app.core.config import get_settings
 
 logger = logging.getLogger(__name__)
 
@@ -297,3 +297,4 @@ __all__ = [
     "require_user_id",
     "resolve_user",
 ]
+

@@ -1,0 +1,54 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+pip-wheel-metadata/
+
+# ---- Node / Next.js ----
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.turbo/
+
+# ---- Env / secrets ----
+.env
+.env.local
+.env.*.local
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- Data / cache (per ADR-002 ORS cache, ADR-001 interpolation outputs) ----
+*.sqlite
+*.sqlite3
+data/
+.cache/
+*.log
+
+# ---- Supabase local CLI state ----
+supabase/.temp/

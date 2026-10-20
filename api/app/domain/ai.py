@@ -1,4 +1,4 @@
-"""Groq integration for the requirement builder and the explanation writer.
+﻿"""Groq integration for the requirement builder and the explanation writer.
 
 Two capabilities live here, and both are strictly bounded:
 
@@ -27,7 +27,7 @@ from typing import Any, Optional
 
 from pydantic import BaseModel, Field, ValidationError, field_validator
 
-from api.app.core.config import get_settings
+from app.core.config import get_settings
 
 logger = logging.getLogger(__name__)
 
@@ -265,7 +265,7 @@ Output shape:
 
 
 def _build_parse_prompt(description: str, business_type: Optional[str]) -> str:
-    from api.app.domain.catalog import (
+    from app.domain.catalog import (
         business_type_catalog,
         facility_catalog,
         requirement_catalog,
@@ -397,3 +397,4 @@ __all__ = [
     "parse_requirements",
     "write_explanation",
 ]
+

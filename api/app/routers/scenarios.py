@@ -1,4 +1,4 @@
-"""FastAPI router for saved MCA scenarios and scenario comparisons.
+﻿"""FastAPI router for saved MCA scenarios and scenario comparisons.
 
 Scenarios are persisted in the ``saved_scenarios`` table created by
 ``infra/sql/migrations/0001_init.sql``.  Ranking is deliberately
@@ -26,9 +26,9 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from supabase import Client
 
-from api.app.core.auth import AuthenticatedUser, get_current_user, require_user_id
-from api.app.core.matrix_store import load_normalized_matrix
-from api.app.core.supabase_client import get_supabase_client as _shared_supabase_client
+from app.core.auth import AuthenticatedUser, get_current_user, require_user_id
+from app.core.matrix_store import load_normalized_matrix
+from app.core.supabase_client import get_supabase_client as _shared_supabase_client
 from scoring.score import apply_weights, rank_sites
 
 
@@ -377,3 +377,4 @@ __all__ = [
     "get_supabase_client",
     "get_normalized_matrix",
 ]
+

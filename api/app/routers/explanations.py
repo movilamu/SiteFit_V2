@@ -1,4 +1,4 @@
-"""Site explainability API.
+﻿"""Site explainability API.
 
 Produces the "why this site?" narrative for a candidate site from the
 deterministic scoring engine, the requirement evaluation and the
@@ -13,7 +13,7 @@ from typing import Any, Optional
 from fastapi import APIRouter, HTTPException, Request, status
 from pydantic import BaseModel, Field
 
-from api.app.domain.explanations import build_explanation
+from app.domain.explanations import build_explanation
 from scoring.requirement_fit import apply_fit_penalty, evaluate_site_requirements
 from scoring.score import apply_weights, rank_sites
 from scoring.weight_model import (
@@ -67,7 +67,7 @@ def explain_site(payload: ExplainRequest, request: Request) -> dict[str, Any]:
         )
 
     try:
-        from api.app.routers.scenarios import get_normalized_matrix
+        from app.routers.scenarios import get_normalized_matrix
 
         matrix = get_normalized_matrix()
     except Exception as exc:
@@ -206,7 +206,7 @@ def explain_site(payload: ExplainRequest, request: Request) -> dict[str, Any]:
 
 def _site_name(request: Request, site_id: str) -> Optional[str]:
     try:
-        from api.app.routers.sites import get_sites_dataframe
+        from app.routers.sites import get_sites_dataframe
 
         sites_df = get_sites_dataframe(request)
     except Exception:
@@ -223,7 +223,7 @@ def _site_attributes(request: Request, site_id: str) -> Optional[dict[str, Any]]
     """Return the attribute mapping for a site, or ``None`` when unavailable."""
 
     try:
-        from api.app.routers.sites import get_sites_dataframe
+        from app.routers.sites import get_sites_dataframe
 
         sites_df = get_sites_dataframe(request)
     except Exception:
@@ -251,7 +251,7 @@ def _stability_for(
     """Return the rank-stability row for a site, if it can be computed."""
 
     try:
-        from api.app.core.matrix_store import load_normalized_matrix
+        from app.core.matrix_store import load_normalized_matrix
         from sensitivity.stability import rank_stability_report
 
         matrix = load_normalized_matrix()
@@ -267,3 +267,4 @@ def _stability_for(
                 "current_rank": int(row.get("current_rank", 0)),
             }
     return None
+

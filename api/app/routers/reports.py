@@ -1,4 +1,4 @@
-"""Executive decision report API.
+﻿"""Executive decision report API.
 
 The report is assembled from the deterministic results the platform has
 already produced.  The endpoint accepts the analysis context that the
@@ -14,7 +14,7 @@ from fastapi import APIRouter, HTTPException, Request, status
 from fastapi.responses import HTMLResponse, PlainTextResponse
 from pydantic import BaseModel, Field
 
-from api.app.domain.reporting import build_report, render_html, render_markdown
+from app.domain.reporting import build_report, render_html, render_markdown
 
 router = APIRouter(prefix="/reports", tags=["Reporting"])
 
@@ -111,3 +111,4 @@ def generate_report_html(payload: ReportRequest) -> HTMLResponse:
 
 
 __all__ = ["router"]
+

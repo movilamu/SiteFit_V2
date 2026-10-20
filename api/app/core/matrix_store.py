@@ -1,4 +1,4 @@
-"""Loading and caching of the precomputed normalised decision matrix.
+﻿"""Loading and caching of the precomputed normalised decision matrix.
 
 The scoring engine works on a *precomputed* matrix (one row per candidate
 site, one column per criterion leaf, values in [0, 1]).  Producing it is an
@@ -29,7 +29,7 @@ from typing import Any, Optional
 
 import pandas as pd
 
-from api.app.core.config import get_settings
+from app.core.config import get_settings
 
 logger = logging.getLogger(__name__)
 
@@ -103,7 +103,7 @@ def _load_from_supabase() -> Optional[pd.DataFrame]:
         return None
 
     try:
-        from api.app.core.supabase_client import rest_get
+        from app.core.supabase_client import rest_get
     except Exception:  # pragma: no cover - defensive
         return None
 
@@ -238,3 +238,4 @@ __all__ = [
     "matrix_summary",
     "set_in_memory_matrix",
 ]
+

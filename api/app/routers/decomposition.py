@@ -1,7 +1,7 @@
-"""FastAPI router for site score decomposition.
+﻿"""FastAPI router for site score decomposition.
 
 The decomposition explains *why* a site received its score.  It is computed
-entirely from the deterministic scoring engine — no language model is
+entirely from the deterministic scoring engine â€” no language model is
 involved, and no value is inferred.
 
 The aggregate score returned here is produced by
@@ -72,7 +72,7 @@ def _load_normalized_matrix():
     """Load the precomputed normalized matrix used for scoring."""
 
     try:
-        from api.app.routers.scenarios import get_normalized_matrix
+        from app.routers.scenarios import get_normalized_matrix
 
         return get_normalized_matrix()
     except Exception as exc:
@@ -239,3 +239,4 @@ def get_site_decomposition(
         dropped_criteria=dropped,
         coverage=round(coverage, 6),
     )
+

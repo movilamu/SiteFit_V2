@@ -1,4 +1,4 @@
-"""Shared Pydantic schemas.
+﻿"""Shared Pydantic schemas.
 
 The response models that are shared by more than one router live here so
 that the API contract is defined in one place.  Router-specific request
@@ -121,3 +121,4 @@ __all__ = [
     "SourceCoverage",
     "StatusValue",
 ]
+

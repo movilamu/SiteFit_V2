@@ -1,4 +1,4 @@
-"""External property and brokerage opportunity discovery.
+﻿"""External property and brokerage opportunity discovery.
 
 Design principles
 -----------------
@@ -41,7 +41,7 @@ from datetime import datetime, timezone
 from typing import Any, Iterable, Mapping, Optional
 from urllib.parse import urlparse
 
-from api.app.core.config import get_settings
+from app.core.config import get_settings
 
 logger = logging.getLogger(__name__)
 
@@ -992,3 +992,4 @@ __all__ = [
     "list_sources",
     "search_properties",
 ]
+

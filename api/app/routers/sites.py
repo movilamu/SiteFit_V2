@@ -1,9 +1,9 @@
-"""
+﻿"""
 api/sites_routes.py
 
 FastAPI router exposing candidate site inventory:
 
-1. GET /sites — all candidate sites with coordinates and basic info.
+1. GET /sites â€” all candidate sites with coordinates and basic info.
    Optional query params map to File 26 hard-constraint filters:
    min_unit_size, max_rent, required_tenure.
 
@@ -26,8 +26,8 @@ from pydantic import BaseModel, Field
 # File 26: scoring/constraints.py
 # =============================================================================
 
-from api.app.core.cache import TTLCache
-from api.app.core.supabase_client import rest_get
+from app.core.cache import TTLCache
+from app.core.supabase_client import rest_get
 from scoring.constraints import apply_hard_constraints
 
 

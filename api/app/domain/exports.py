@@ -1,4 +1,4 @@
-"""Report exports in PDF, CSV and Excel.
+﻿"""Report exports in PDF, CSV and Excel.
 
 Every export carries the **exact** weighting configuration, aggregation
 method and requirement set that produced the ranking, so a reader can
@@ -791,3 +791,4 @@ __all__ = [
     "build_pdf",
     "export_filename",
 ]
+

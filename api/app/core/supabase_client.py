@@ -1,4 +1,4 @@
-"""Supabase access helpers.
+﻿"""Supabase access helpers.
 
 The API talks to Supabase in two ways:
 
@@ -16,7 +16,7 @@ from __future__ import annotations
 import logging
 from typing import Any, Optional
 
-from api.app.core.config import Settings, get_settings
+from app.core.config import Settings, get_settings
 
 logger = logging.getLogger(__name__)
 
@@ -116,3 +116,4 @@ __all__ = [
     "is_supabase_configured",
     "rest_get",
 ]
+
