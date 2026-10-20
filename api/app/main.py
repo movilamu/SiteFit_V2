@@ -121,10 +121,17 @@ if settings.enable_metrics:
     try:
         from prometheus_fastapi_instrumentator import Instrumentator
 
-        Instrumentator().instrument(app).expose(app, include_in_schema=False)
-    except ImportError:  # pragma: no cover - optional dependency
+        Instrumentator().instrument(app).expose(
+            app,
+            include_in_schema=False,
+        )
+
+        logger.info("Prometheus metrics enabled at /metrics.")
+
+    except Exception as exc:  # pragma: no cover - defensive startup protection
         logger.warning(
-            "prometheus-fastapi-instrumentator is not installed; /metrics is disabled."
+            "Prometheus metrics could not be enabled; continuing without metrics: %s",
+            exc,
         )
 
 
