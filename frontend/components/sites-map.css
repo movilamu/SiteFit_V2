@@ -1,0 +1,101 @@
+.sites-map {
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * Site markers.
+ *
+ * Each marker shows its rank number, so the map is readable without
+ * colour.  The colour band only reinforces the score, and the selected
+ * marker is additionally outlined and enlarged.
+ */
+.site-marker {
+  display: flex;
+  width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+  background: #1d4ed8;
+  box-shadow:
+    0 0 0 1px rgba(17, 24, 32, 0.18),
+    0 1px 3px rgba(17, 24, 32, 0.25);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.site-marker:hover {
+  transform: scale(1.12);
+  z-index: 2;
+}
+
+.site-marker:focus-visible {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 2px;
+  z-index: 3;
+}
+
+.site-marker[data-band='strong'] {
+  background: #0b6b3a;
+}
+
+.site-marker[data-band='moderate'] {
+  background: #1d4ed8;
+}
+
+.site-marker[data-band='weak'] {
+  background: #96560a;
+}
+
+.site-marker[data-band='poor'] {
+  background: #b42318;
+}
+
+.site-marker.is-selected {
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
+  border-color: #ffffff;
+  box-shadow:
+    0 0 0 3px rgba(29, 78, 216, 0.35),
+    0 2px 6px rgba(17, 24, 32, 0.3);
+  z-index: 4;
+}
+
+.site-marker.is-excluded {
+  background: #57616f;
+  opacity: 0.75;
+}
+
+/* Location picker controls */
+.location-picker-centre {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  border: 3px solid #1d4ed8;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 4px rgba(17, 24, 32, 0.3);
+  cursor: grab;
+  padding: 0;
+}
+
+.location-picker-radius {
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  border: 2px solid #1d4ed8;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(17, 24, 32, 0.3);
+  cursor: pointer;
+  padding: 0;
+}

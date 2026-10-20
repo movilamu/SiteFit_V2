@@ -1,0 +1,15 @@
+pmOnFail: ignore
+
+minimumReleaseAgeExclude:
+  - '@next/*'
+  - next
+
+# Build scripts that are explicitly approved to run.
+#   @sentry/cli    - builds the Sentry source-map uploader used at build time
+#   esbuild       - required by vitest for test transpilation
+#   unrs-resolver - required by eslint-config-next for module resolution
+allowBuilds:
+  '@sentry/cli': true
+  esbuild: true
+  unrs-resolver: true
+  sharp: true
