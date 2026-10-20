@@ -1,0 +1,13 @@
+# Ingestion / ETL dependencies.
+pandas>=2.2,<3.0
+numpy>=1.26,<3.0
+supabase>=2.4,<3.0
+requests>=2.32,<3.0
+urllib3>=2.2,<3.0
+h3>=4.1,<5.0
+shapely>=2.0,<3.0
+beautifulsoup4>=4.12,<5.0
+python-dotenv>=1.0,<2.0
+networkx>=3.3,<4.0
+httpx>=0.27,<1.0
+psycopg2-binary>=2.9,<3.0
