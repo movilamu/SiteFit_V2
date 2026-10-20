@@ -1,0 +1,4 @@
+# Sensitivity analysis dependencies.
+numpy>=1.26,<3.0
+pandas>=2.2,<3.0
+scipy>=1.13,<2.0
