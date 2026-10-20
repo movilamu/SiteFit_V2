@@ -22,7 +22,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.core.config import get_settings
-from api.app.routers import (
+from api.routers import (
     brokerage,
     criteria,
     data_quality,
